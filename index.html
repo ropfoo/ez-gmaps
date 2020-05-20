@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Google Maps Test</title>
+  </head>
+  <body>
+    <h1>My Map</h1>
+
+    <!-- Map Marker from Markup -->
+    <div id="markers">
+      <!-- markup with special icon and text content on click-->
+      <div
+        data-lat="50.967121"
+        data-lng="6.889075"
+        data-icon="/img/icon-special.svg"
+        data-title="Nice title"
+        data-content="Some very intersting stuff"
+      >
+        Ehrenfeld
+      </div>
+      <!-- ---------------- -->
+      <!-- markups without special attributes-->
+      <div data-lat="50.885996456" data-lng="7.053166454">Porz</div>
+      <div data-lat="50.89355" data-lng=" 6.99043 ">Rodenkirchen</div>
+      <!-- ---------------- -->
+    </div>
+    <!-- ---------------- -->
+
+    <!-- Google Map -->
+    <div id="map"></div>
+    <!-- ---------------- -->
+
+    <script src="/ez-maps.js"></script>
+    <script>
+      function initMap() {
+        // create Map (zoom, start coordinates, document map id)
+        ezMap.createMap(
+          11,
+          {
+            lat: 50.9375,
+            lng: 6.9603,
+          },
+          'map',
+          '/img/icon-default.svg'
+        );
+
+        ezMap.loadInMarkersFromMarkup('markers');
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzSt6j6VLhuJqeMAf-s2SOeJenAbZ7dBc&callback=initMap"
+    ></script>
+  </body>
+</html>
