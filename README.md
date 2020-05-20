@@ -5,11 +5,9 @@
 Add a div container like 'markers'.
 
 ```html
- <div id="markers">
-   .
-   .
-   .
- </div>
+<div id="markers">
+  . . .
+</div>
 ```
 
 All items in 'markers' will be added as markers on your google map.
@@ -18,13 +16,13 @@ In this case: **data-lat** and **data-lng**
 By default that's all you need to make it work
 
 ```html
- <div id="markers">
-   <div data-lat="50.885996456" data-lng="7.053166454">Porz</div>
-   <div data-lat="50.89355" data-lng=" 6.99043 ">Rodenkirchen</div>
- </div>
+<div id="markers">
+  <div data-lat="50.885996456" data-lng="7.053166454">Porz</div>
+  <div data-lat="50.89355" data-lng=" 6.99043 ">Rodenkirchen</div>
+</div>
 ```
 
-However you can also define additional attributes like a special icon or some text that's beeing display when clicking on the marker.
+However you can also define additional attributes like a special icon or some text that's beeing displayed when clicking on the marker.
 
 ```html
 <div

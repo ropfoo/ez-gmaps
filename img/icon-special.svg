@@ -1,3 +1,16 @@
-<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="10" cy="10" r="8.5" stroke="#202020" stroke-width="3"/>
+<svg id="Layer_1_copy_3" data-name="Layer 1 copy 3" xmlns="http://www.w3.org/2000/svg" width="35.6" height="46.12" viewBox="0 0 35.6 46.12">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffce00;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>icon-special</title>
+  <path class="cls-1" d="M42.51,19.8c0,7.52-10.41,22.73-15.3,27.33a3.64,3.64,0,0,1-5,0C17.32,42.53,6.91,27.32,6.91,19.8a17.8,17.8,0,0,1,35.6,0Z" transform="translate(-6.91 -2)"/>
+  <polygon class="cls-2" points="17.8 7.56 20.89 13.82 27.81 14.83 22.81 19.71 23.99 26.6 17.8 23.34 11.61 26.6 12.8 19.71 7.79 14.83 14.71 13.82 17.8 7.56"/>
 </svg>
