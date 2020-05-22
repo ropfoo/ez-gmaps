@@ -1,14 +1,14 @@
 - [Setup](#setup)
 - [Create Markers from Geo Coordinates](#create-markers-from-geo-coordinates)
+  - [From Markup](#from-markup)
+  - [From Array](#from-array)
 
 ## Setup
 
 #### 1. Add a div for displaying the map.
 
 ```html
-<!-- Google Map -->
 <div id="map"></div>
-<!-- ---------------- -->
 ```
 
 You cann now feel free to size it via css.
@@ -23,8 +23,22 @@ You cann now feel free to size it via css.
 
 #### 3. Add a script tag to define the map
 
+The Google Maps API uses a callback function called *initMap()* to send the map data to the google server.
+Inside the *initMap()* function you can put the *ez-gmaps.js* code. All functions need to be called on the **ezMap** object.  
+Initially call the *createMap()* function, to see your map beeing displayed in the div tag.
+
+#### createMap() Parameters
+parameter | description
+------------ | -------------
+zoom | Map zoom level from 1 (World) to 20 (Buildings)
+coordinates | Initial map location (latitude and longitude)
+id | div id of google map (step 1)
+icon | replaces default map marker (OPTIONAL)
+
+
 ```html
 <script>
+  // callback function to send map data to the google server
   function initMap() {
     // create Map (zoom, start coordinates, document map id, default icon (optional))
     ezMap.createMap(
