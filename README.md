@@ -1,4 +1,4 @@
-- [Setup](#setup) 
+- [Setup](#setup)
 - [Create Markers from Geo Coordinates](#create-markers-from-geo-coordinates)
 
 ## Setup
@@ -94,4 +94,29 @@ However you can also define additional attributes like a special icon or some te
 
 ### From Array
 
-You can also add markers by defining them in an array like this with the **latitude** and **longitude** coordinates like this:
+You can also add markers by defining them in an array with the **latitude** and **longitude** coordinates like this:
+
+```javascript
+const markers = [
+  {
+    coords: { lat: 50.885996456, lng: 7.053166454 },
+  },
+  {
+    coords: { lat: 50.89355, lng: 6.99043 },
+  },
+];
+```
+
+```javascript
+const markers = [
+  {
+    title: 'Some nice place',
+    content: "That's where the party starts!",
+    coords: { lat: 50.885996456, lng: 7.053166454 },
+    icon: '/img/icon-special.svg',
+  },
+  {
+    coords: { lat: 50.89355, lng: 6.99043 },
+  },
+];
+```

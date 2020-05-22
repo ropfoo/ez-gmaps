@@ -10,7 +10,7 @@ const ezMap = {
       center: centerCoords,
     });
   },
-  addMarker(coords, icon, content) {
+  addMarker(coords, icon, title, content) {
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
@@ -18,18 +18,24 @@ const ezMap = {
     });
     if (content) {
       const infoWindow = new google.maps.InfoWindow({
-        content: content,
+        content: this.createMarkerConent(title, content),
       });
       marker.addListener('click', () => {
         infoWindow.open(this.map, marker);
       });
     }
   },
-  addMarkerFromAdress() {},
-  generateMarkersFromArray(markers) {
+  //addMarkerFromAdress() {},
+  generateMarkers(markers) {
     markers.forEach((marker) => {
-      this.addMarker(marker.coords, marker.icon, marker.content);
+      this.addMarker(marker.coords, marker.icon, marker.title, marker.content);
     });
+  },
+  loadInMarkersFromArray(markers) {
+    markers.forEach((marker) => {
+      this.markers.push(marker);
+    });
+    this.generateMarkers(this.markers);
   },
   loadInMarkersFromMarkup(id) {
     const markersImport = document.getElementById(id).children;
@@ -38,19 +44,15 @@ const ezMap = {
         icon: markerImport.dataset.icon
           ? markerImport.dataset.icon
           : this.imgURL,
-        content: markerImport.dataset.content
-          ? this.createMarkerConent(
-              markerImport.dataset.title,
-              markerImport.dataset.content
-            )
-          : null,
+        title: markerImport.dataset.title,
+        content: markerImport.dataset.content,
         coords: {
           lat: parseFloat(markerImport.dataset.lat),
           lng: parseFloat(markerImport.dataset.lng),
         },
       });
     });
-    this.generateMarkersFromArray(this.markers);
+    this.generateMarkers(this.markers);
   },
   createMarkerConent(title, content) {
     return `<h2>${title}</h2></br><p>${content}</p>`;
