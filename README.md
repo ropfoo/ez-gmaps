@@ -13,7 +13,7 @@
 
 You cann now feel free to size it via css.
 
-> **NOTE:** by default an empty div has a size of 0 so make sure to set a height attribte.
+> **NOTE:** by default an empty div has a size of 0 so make sure to set a height attribute.
 
 #### 2. Import '**_ez-gmaps.js_**'
 
@@ -23,18 +23,18 @@ You cann now feel free to size it via css.
 
 #### 3. Add a script tag to define the map
 
-The Google Maps API uses a callback function called *initMap()* to send the map data to the google server.
-Inside the *initMap()* function you can put the *ez-gmaps.js* code. All functions need to be called on the **ezMap** object.  
-Initially call the *createMap()* function, to see your map beeing displayed in the div tag.
+The Google Maps API uses a callback function called _initMap()_ to send the map data to the google server.  
+Inside the _initMap()_ function you can put the _ez-gmaps.js_ code. All functions need to be called on the **ezMap** object.  
+Initially call the _createMap()_ function, to see your map beeing displayed in the div tag.
 
 #### createMap() Parameters
-parameter | description
------------- | -------------
-zoom | Map zoom level from 1 (World) to 20 (Buildings)
-coordinates | Initial map location (latitude and longitude)
-id | div id of google map (step 1)
-icon | replaces default map marker (OPTIONAL)
 
+| parameter   | description                                             |
+| ----------- | ------------------------------------------------------- |
+| zoom        | Map zoom level from **1** (World) to **20** (Buildings) |
+| coordinates | Initial map location (**latitude** and **longitude**)   |
+| id          | div id of google map (step 1)                           |
+| icon        | replaces default map marker (_OPTIONAL_)                |
 
 ```html
 <script>
@@ -69,6 +69,26 @@ icon | replaces default map marker (OPTIONAL)
 
 ## Create Markers from Geo Coordinates
 
+In order to create a marker from geo coordinates it needs the attributes for **latitude** and **longitude**
+
+#### Required Attributes
+
+| attribute | description |
+| --------- | ----------- |
+| lat       | latitude    |
+| lng       | longitude   |
+
+That's all the API **needs** to display them.  
+There are however additional optional attributes to customize a marker
+
+#### Optional Attributes
+
+| attribute | description                                                |
+| --------- | ---------------------------------------------------------- |
+| icon      | Custom icon beeing only displayed for that specific marker |
+| title     | Title beeing displayed on click                            |
+| content   | Content beeing displayed on click                          |
+
 ### From Markup
 
 One way to create google maps marker with _ez-gmaps_ is by adding them as data attributes in a div tag.
@@ -83,7 +103,7 @@ Add a div container with an id (e.g. 'markers').
 ```
 
 All items in 'markers' will now be added as markers on your google map.
-For that to happen, each marker needs two coordinates as data attributes (latitude and longitude).  
+For that to happen, each marker needs the lat lng attributes as stated above.  
 In this case: **data-lat** and **data-lng**  
 By default that's all you need to make it work
 
@@ -94,7 +114,7 @@ By default that's all you need to make it work
 </div>
 ```
 
-However you can also define additional attributes like a special icon or some text that's beeing displayed when clicking on the marker.
+You can also define additional attributes the same way
 
 ```html
 <div
@@ -106,9 +126,28 @@ However you can also define additional attributes like a special icon or some te
 ></div>
 ```
 
+To add your markers to the map, call the _*loadInMarkersFromMarkup()*_ function below the _createMap()_ call and give it the _markers_ div id as a paramenter.
+
+```html
+<script>
+  function initMap() {
+    ezMap.createMap(
+      .
+      .
+      .
+    );
+
+    ezMap.loadInMarkersFromMarkup('markers');
+
+  }
+</script>
+```
+
+That's it! Now your markers should show up on the map.
+
 ### From Array
 
-You can also add markers by defining them in an array with the **latitude** and **longitude** coordinates like this:
+Of course you can also add markers by defining them in an array with the **latitude** and **longitude** coordinates like this:
 
 ```javascript
 const markers = [
@@ -120,6 +159,8 @@ const markers = [
   },
 ];
 ```
+
+Also with special attributes:
 
 ```javascript
 const markers = [
@@ -134,3 +175,22 @@ const markers = [
   },
 ];
 ```
+
+To add your markers to the map, call the _*loadInMarkersFromArray()*_ function below the _createMap()_ call and give it the _markers_ array as a paramenter.
+
+```html
+<script>
+  function initMap() {
+    ezMap.createMap(
+      .
+      .
+      .
+    );
+
+    ezMap.loadInMarkersFromArray(markers);
+
+  }
+</script>
+```
+
+That's it! Now your markers should show up on the map.

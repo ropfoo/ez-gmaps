@@ -18,7 +18,7 @@ const ezMap = {
     });
     if (content) {
       const infoWindow = new google.maps.InfoWindow({
-        content: this.createMarkerConent(title, content),
+        content: this.createMarkerContent(title, content),
       });
       marker.addListener('click', () => {
         infoWindow.open(this.map, marker);
@@ -54,7 +54,7 @@ const ezMap = {
     });
     this.generateMarkers(this.markers);
   },
-  createMarkerConent(title, content) {
+  createMarkerContent(title, content) {
     return `<h2>${title}</h2></br><p>${content}</p>`;
   },
 };
