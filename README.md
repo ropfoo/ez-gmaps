@@ -1,6 +1,6 @@
 ## Setup
 
-1. The first step is to add a div for displaying the map.
+#### 1. Add a div for displaying the map.
 
 ```html
 <!-- Google Map -->
@@ -10,15 +10,15 @@
 
 You cann now feel free to size it via css.
 
-> NOTE: By default an empty div has a size of 0 so make sure to set a height attribte.
+> **NOTE:** by default an empty div has a size of 0 so make sure to set a height attribte.
 
-2. Import _ez-gmaps.js_
+#### 2. Import '**_ez-gmaps.js_**'
 
 ```html
 <script src="/ez-gmaps.js"></script>
 ```
 
-3. Add a script tag to define the map
+#### 3. Add a script tag to define the map
 
 ```html
 <script>
@@ -37,9 +37,9 @@ You cann now feel free to size it via css.
 </script>
 ```
 
-4. Import the Google Maps API
+#### 4. Import the Google Maps API
 
-> You need to repalce **YOUR_API_KEY** with an actual API key from your Google Dev Account.
+> You need to repalce **YOUR_API_KEY** with an actual API key from your Google Dev Account.  
 > [More information ](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ```html
@@ -50,9 +50,9 @@ You cann now feel free to size it via css.
 ></script>
 ```
 
-### Create Markers wth Geo Coordinates
+## Create Markers wth Geo Coordinates
 
-#### From Markup
+### From Markup
 
 One way to create google maps marker with _ez-gmaps_ is by adding them as data attributes in a div tag.
 This might be usefull when having corresponding information to a maps marker in your html markup.
@@ -89,6 +89,6 @@ However you can also define additional attributes like a special icon or some te
 ></div>
 ```
 
-#### From Array
+### From Array
 
 You can also add markers by defining them in an array like this with the **latitude** and **longitude** coordinates like this:
