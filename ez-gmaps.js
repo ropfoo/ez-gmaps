@@ -26,7 +26,7 @@ const ezMap = {
     }
   },
   addMarkerFromAdress() {},
-  generateMarkers(markers) {
+  generateMarkersFromArray(markers) {
     markers.forEach((marker) => {
       this.addMarker(marker.coords, marker.icon, marker.content);
     });
@@ -50,7 +50,7 @@ const ezMap = {
         },
       });
     });
-    this.generateMarkers(this.markers);
+    this.generateMarkersFromArray(this.markers);
   },
   createMarkerConent(title, content) {
     return `<h2>${title}</h2></br><p>${content}</p>`;
