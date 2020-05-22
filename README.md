@@ -1,3 +1,6 @@
+- [Setup](#setup) 
+- [Create Markers from Geo Coordinates](#create-markers-from-geo-coordinates)
+
 ## Setup
 
 #### 1. Add a div for displaying the map.
@@ -50,7 +53,7 @@ You cann now feel free to size it via css.
 ></script>
 ```
 
-## Create Markers wth Geo Coordinates
+## Create Markers from Geo Coordinates
 
 ### From Markup
 
