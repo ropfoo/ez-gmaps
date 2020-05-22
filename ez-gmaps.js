@@ -25,6 +25,7 @@ const ezMap = {
       });
     }
   },
+  addMarkerFromAdress() {},
   generateMarkers(markers) {
     markers.forEach((marker) => {
       this.addMarker(marker.coords, marker.icon, marker.content);
