@@ -10,11 +10,13 @@ const ezMap = {
       center: centerCoords,
     });
   },
-  addMarker(coords, icon, title, content) {
+  addMarker(coords, icon, iconActive, title, content, active) {
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
+      active: active,
       icon: icon,
+      iconActive: iconActive,
     });
     if (content) {
       const infoWindow = new google.maps.InfoWindow({
@@ -24,11 +26,23 @@ const ezMap = {
         infoWindow.open(this.map, marker);
       });
     }
+    if (iconActive) {
+      marker.addListener('click', () => {
+        active ? marker.setIcon(iconActive) : marker.setIcon(icon);
+        active = !active;
+      });
+    }
   },
   //addMarkerFromAdress() {},
   generateMarkers(markers) {
     markers.forEach((marker) => {
-      this.addMarker(marker.coords, marker.icon, marker.title, marker.content);
+      this.addMarker(
+        marker.coords,
+        marker.icon,
+        marker.iconActive,
+        marker.title,
+        marker.content
+      );
     });
   },
   loadInMarkersFromArray(markers) {
@@ -44,6 +58,8 @@ const ezMap = {
         icon: markerImport.dataset.icon
           ? markerImport.dataset.icon
           : this.imgURL,
+        iconActive: markerImport.dataset.iconactive,
+        isActive: markerImport.dataset.isactive === 'true' ? true : false,
         title: markerImport.dataset.title,
         content: markerImport.dataset.content,
         coords: {
