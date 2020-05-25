@@ -11,7 +11,7 @@
 <div id="map"></div>
 ```
 
-You cann now feel free to size it via css.
+You can now feel free to size it via css.
 
 > **NOTE:** by default an empty div has a size of 0 so make sure to set a height attribute.
 
