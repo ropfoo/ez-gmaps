@@ -18,18 +18,30 @@ const ezMap = {
       iconActive: iconActive,
       icon: active ? iconActive : icon,
     });
-    if (content) {
-      const infoWindow = new google.maps.InfoWindow({
-        content: this.createMarkerContent(title, content),
-      });
-      marker.addListener('click', () => {
-        infoWindow.open(this.map, marker);
-      });
-    }
+    const infoWindow = new google.maps.InfoWindow({
+      content: this.createMarkerContent(title, content),
+    });
+
+    google.maps.event.addListener(infoWindow, 'closeclick', function () {
+      marker.setIcon(icon);
+      active = false;
+    });
     if (iconActive) {
+      marker.addListener('mouseover', () => {
+        marker.setIcon(iconActive);
+      });
+      marker.addListener('mouseout', () => {
+        active ? '' : marker.setIcon(icon);
+      });
       marker.addListener('click', () => {
         active = !active;
-        active ? marker.setIcon(iconActive) : marker.setIcon(icon);
+        if (active) {
+          marker.setIcon(iconActive);
+          infoWindow.open(this.map, marker);
+        } else {
+          marker.setIcon(icon);
+          infoWindow.close();
+        }
       });
     }
   },
