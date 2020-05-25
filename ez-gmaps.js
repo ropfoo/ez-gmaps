@@ -15,8 +15,8 @@ const ezMap = {
       position: coords,
       map: this.map,
       active: active,
-      icon: icon,
       iconActive: iconActive,
+      icon: active ? iconActive : icon,
     });
     if (content) {
       const infoWindow = new google.maps.InfoWindow({
@@ -28,8 +28,8 @@ const ezMap = {
     }
     if (iconActive) {
       marker.addListener('click', () => {
-        active ? marker.setIcon(iconActive) : marker.setIcon(icon);
         active = !active;
+        active ? marker.setIcon(iconActive) : marker.setIcon(icon);
       });
     }
   },
@@ -41,7 +41,8 @@ const ezMap = {
         marker.icon,
         marker.iconActive,
         marker.title,
-        marker.content
+        marker.content,
+        marker.isActive
       );
     });
   },

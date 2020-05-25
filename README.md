@@ -87,7 +87,7 @@ There are however additional optional attributes to customize a marker
 | ---------- | ---------------------------------------------------------- |
 | icon       | Custom icon beeing only displayed for that specific marker |
 | iconActive | Optional icon that displays on active state                |
-| isActive   | Boolean for active state changing                          |
+| isActive   | Boolean for active state changing - toggles on click       |
 | title      | Title beeing displayed on click                            |
 | content    | Content beeing displayed on click                          |
 
