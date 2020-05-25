@@ -84,6 +84,6 @@ const ezMap = {
     this.generateMarkers(this.markers);
   },
   createMarkerContent(title, content) {
-    return `<h2>${title}</h2></br><p>${content}</p>`;
+    return `<b>${title}</b></br><p>${content}</p>`;
   },
 };
