@@ -79,9 +79,6 @@ In order to create a marker from geo coordinates it needs the attributes for **l
 | lat   | data-lat | latitude    |
 | lng   | data-lng | longitude   |
 
-That's all the API **needs** to display them.  
-There are however additional optional attributes to customize a marker
-
 #### Optional Attributes
 
 | array      | markup          | description                                                |
@@ -146,8 +143,6 @@ To add your markers to the map, call the _*loadInMarkersFromMarkup()*_ function 
 </script>
 ```
 
-That's it! Now your markers should show up on the map.
-
 ### From Array
 
 Of course you can also add markers by defining them in an array with the **latitude** and **longitude** coordinates like this:
@@ -196,8 +191,6 @@ To add your markers to the map, call the _*loadInMarkersFromArray()*_ function b
 </script>
 ```
 
-That's it! Now your markers should show up on the map.
-
 ## Create Markers from address
 
 If you dont want to use coordinates to define the loacation of your markers, you can also just simply use an **address**.
@@ -214,9 +207,6 @@ ezMap.setAPIKey('YOUR_API_KEY');
 | ------- | ------------ | ---------------- |
 | address | data-address | location address |
 
-That's all the API **needs** to display them.  
-There are however additional optional attributes to customize a marker
-
 #### Optional Attributes
 
 | array      | markup          | description                                                |
@@ -229,12 +219,15 @@ There are however additional optional attributes to customize a marker
 
 ### From Markup
 
+In your html markup you can simply add a marker like this:
+
 ```html
 <div id="markers">
-  <div data-lat="50.885996456" data-lng="7.053166454">Porz</div>
-  <div data-lat="50.89355" data-lng=" 6.99043 ">Rodenkirchen</div>
+  <div data-address="Lindenstraße+20+50674+Köln">Some nice place</div>
 </div>
 ```
+
+And this is how your script tag could look like:
 
 ```html
 <script>
@@ -248,5 +241,7 @@ There are however additional optional attributes to customize a marker
     ezMap.loadInMarkersFromMarkup('markers');
 
   }
+  ezMap.setAPIKey('YOUR_API_KEY');
+
 </script>
 ```
