@@ -2,6 +2,7 @@
 - [Create Markers from Geo Coordinates](#create-markers-from-geo-coordinates)
   - [From Markup](#from-markup)
   - [From Array](#from-array)
+- [Create Markers from Address](#create-markers-from-address)
 
 ## Setup
 
@@ -73,23 +74,23 @@ In order to create a marker from geo coordinates it needs the attributes for **l
 
 #### Required Attributes
 
-| attribute | description |
-| --------- | ----------- |
-| lat       | latitude    |
-| lng       | longitude   |
+| array | markup   | description |
+| ----- | -------- | ----------- |
+| lat   | data-lat | latitude    |
+| lng   | data-lng | longitude   |
 
 That's all the API **needs** to display them.  
 There are however additional optional attributes to customize a marker
 
 #### Optional Attributes
 
-| attribute  | description                                                |
-| ---------- | ---------------------------------------------------------- |
-| icon       | Custom icon beeing only displayed for that specific marker |
-| iconActive | Optional icon that displays on active state                |
-| isActive   | Boolean for active state changing - toggles on click       |
-| title      | Title beeing displayed on click                            |
-| content    | Content beeing displayed on click                          |
+| array      | markup          | description                                                |
+| ---------- | --------------- | ---------------------------------------------------------- |
+| icon       | data-icon       | Custom icon beeing only displayed for that specific marker |
+| iconActive | data-iconactive | Optional icon that displays on active state                |
+| isActive   | data-isactive   | Boolean for active state changing - toggles on click       |
+| title      | data-title      | Title beeing displayed on click                            |
+| content    | data-content    | Content beeing displayed on click                          |
 
 ### From Markup
 
@@ -196,3 +197,56 @@ To add your markers to the map, call the _*loadInMarkersFromArray()*_ function b
 ```
 
 That's it! Now your markers should show up on the map.
+
+## Create Markers from address
+
+If you dont want to use coordinates to define the loacation of your markers, you can also just simply use an **address**.
+
+For setup, you only need to add your API Key like this:
+
+```javascript
+ezMap.setAPIKey('YOUR_API_KEY');
+```
+
+#### Required Attributes
+
+| array   | markup       | description      |
+| ------- | ------------ | ---------------- |
+| address | data-address | location address |
+
+That's all the API **needs** to display them.  
+There are however additional optional attributes to customize a marker
+
+#### Optional Attributes
+
+| array      | markup          | description                                                |
+| ---------- | --------------- | ---------------------------------------------------------- |
+| icon       | data-icon       | Custom icon beeing only displayed for that specific marker |
+| iconActive | data-iconactive | Optional icon that displays on active state                |
+| isActive   | data-isactive   | Boolean for active state changing - toggles on click       |
+| title      | data-title      | Title beeing displayed on click                            |
+| content    | data-content    | Content beeing displayed on click                          |
+
+### From Markup
+
+```html
+<div id="markers">
+  <div data-lat="50.885996456" data-lng="7.053166454">Porz</div>
+  <div data-lat="50.89355" data-lng=" 6.99043 ">Rodenkirchen</div>
+</div>
+```
+
+```html
+<script>
+  function initMap() {
+    ezMap.createMap(
+      .
+      .
+      .
+    );
+
+    ezMap.loadInMarkersFromMarkup('markers');
+
+  }
+</script>
+```
